@@ -39,6 +39,10 @@ import com.tencent.tinker.loader.shareutil.ShareTinkerInternals;
 import tinker.sample.android.R;
 import tinker.sample.android.util.Utils;
 
+/***
+ * 参考官方源码实现
+ *
+ */
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Tinker.MainActivity";
 
@@ -56,13 +60,15 @@ public class MainActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"21111",Toast.LENGTH_SHORT).show();
+                //以此来验证是否修复
+                Toast.makeText(MainActivity.this,"已修复",Toast.LENGTH_SHORT).show();
             }
         });
         loadPatchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
+                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
+                        Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
             }
         });
 

@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sample patch!"/>
+        android:text="点我测试是否修复"/>
 
     <Button
         android:id="@+id/loadPatch"
@@ -22,7 +22,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView"
-        android:text="load patch"/>
+        android:text="load patch"
+        android:layout_marginTop="10dp"
+        />
 
     <Button
         android:id="@+id/loadLibrary"
