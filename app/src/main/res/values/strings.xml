@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">tinker热修复</string>
-    <string name="test_resource">I am in the base apk</string>
-    <!--<string name="test_resource">I am in the patch apk</string>-->
-</resources>
