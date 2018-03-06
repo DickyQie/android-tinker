@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+apply from: 'tinkerpatch.gradle'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+    defaultConfig {
+        applicationId "com.zhangqie.tinkerrelease"
+        minSdkVersion 19
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'tinkerRelease' //签名别名
+            keyPassword '123456' //签名密码
+            storeFile file('TinkerRelease.jks')//签名文件.keystore或者.jks
+            storePassword '123456'//签名密码
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:22.2.+'
+    provided("com.tinkerpatch.tinker:tinker-android-anno:1.9.2")
+    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.2.2")
+    testCompile 'junit:junit:4.12'
+}
